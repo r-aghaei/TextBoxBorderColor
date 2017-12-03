@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextBoxBorderColor", "TextBoxBorderColor\TextBoxBorderColor.csproj", "{5DE443EE-36F8-4293-8448-79248AFF1504}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DE443EE-36F8-4293-8448-79248AFF1504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE443EE-36F8-4293-8448-79248AFF1504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE443EE-36F8-4293-8448-79248AFF1504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE443EE-36F8-4293-8448-79248AFF1504}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22B12C18-7724-437D-AD59-6E9C5123E2D5}
+	EndGlobalSection
+EndGlobal
