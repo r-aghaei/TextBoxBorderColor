@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextBoxBorderColor", "TextBoxBorderColor\TextBoxBorderColor.csproj", "{5DE443EE-36F8-4293-8448-79248AFF1504}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3FE3A23-6092-4D81-887B-2FF123BFCD96}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+		..\TextBoxBorderColor.png = ..\TextBoxBorderColor.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
