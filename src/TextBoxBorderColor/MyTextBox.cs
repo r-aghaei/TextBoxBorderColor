@@ -11,6 +11,11 @@ namespace TextBoxBorderColor
         const uint RDW_INVALIDATE = 0x1;
         const uint RDW_IUPDATENOW = 0x100;
         const uint RDW_FRAME = 0x400;
+        const uint WM_MOUSELEAVE = 0x02A3;
+        const uint WM_MOUSEMOVE = 0x0200;
+        const uint WM_SETFOCUS = 0x0007;
+        const uint WM_KILLFOCUS = 0x0008;
+        
         [DllImport("user32.dll")]
         static extern IntPtr GetWindowDC(IntPtr hWnd);
         [DllImport("user32.dll")]
@@ -30,15 +35,27 @@ namespace TextBoxBorderColor
         }
         protected override void WndProc(ref Message m)
         {
-            base.WndProc(ref m);
-            if (m.Msg == WM_NCPAINT && BorderColor != Color.Transparent &&
-                BorderStyle == System.Windows.Forms.BorderStyle.Fixed3D)
+            if (m.Msg == WM_MOUSEMOVE || m.Msg == WM_MOUSELEAVE ||
+                m.Msg == WM_SETFOCUS || m.Msg == WM_KILLFOCUS)
             {
-                var hdc = GetWindowDC(this.Handle);
-                using (var g = Graphics.FromHdcInternal(hdc))
-                using (var p = new Pen(BorderColor))
-                    g.DrawRectangle(p, new Rectangle(0, 0, Width - 1, Height - 1));
-                ReleaseDC(this.Handle, hdc);
+                m.Result = (IntPtr)1;
+            }
+            else
+            {
+                base.WndProc(ref m);
+                if (m.Msg == WM_NCPAINT && BorderColor != Color.Transparent &&
+                    BorderStyle == System.Windows.Forms.BorderStyle.Fixed3D)
+                {
+                    var hdc = GetWindowDC(this.Handle);
+                    using (var g = Graphics.FromHdcInternal(hdc))
+                    {
+                        using (var p = new Pen(BorderColor))
+                            g.DrawRectangle(p, new Rectangle(0, 0, Width - 1, Height - 1));
+                        using (var b = new Pen(BackColor))
+                            g.DrawRectangle(b, new Rectangle(1, 1, Width - 3, Height - 3));
+                    }
+                    ReleaseDC(this.Handle, hdc);
+                }
             }
         }
         protected override void OnSizeChanged(EventArgs e)
